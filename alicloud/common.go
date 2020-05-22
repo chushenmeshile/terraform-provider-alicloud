@@ -315,6 +315,10 @@ func convertListToJsonString(configured []interface{}) string {
 	return result
 }
 
+func convertListObjectToJsonString(configure interface{}) (string, error) {
+	b, err := json.Marshal(configure)
+	return string(b), err
+}
 func convertJsonStringToList(configured string) ([]interface{}, error) {
 	result := make([]interface{}, 0)
 	if err := json.Unmarshal([]byte(configured), &result); err != nil {
